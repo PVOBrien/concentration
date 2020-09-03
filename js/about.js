@@ -16,9 +16,9 @@ function displayResults(){
 
   // -Add relevant content to results form on about.html
   var $targetName = $('#resultName');
-  $targetName.empty();
-  var nameHolder = $("<p></p>").text(name);
-  $targetName.append(nameHolder);
+  $targetName.empty(); // https://api.jquery.com/empty/ for this command to empty everything within it.
+  var nameHolder = $("<p></p>").text(name); // creates the <p> tag and then the .text method takes in the name variable as the argument to fill that elements text.
+  $targetName.append(nameHolder); // targets the targetName and appends the var nameHolder to it.
 
   var $targetMode = document.getElementById('resultMode');
   $targetMode.innerHTML='';
