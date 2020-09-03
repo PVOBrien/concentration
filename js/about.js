@@ -12,7 +12,7 @@ function displayResults(){
   var name = userData.name;
   var mode = userData.difficulty;
   var score = userData.finalTimes[0] + ' seconds';
-  console.log('User Data Accessed:', name +' '+ mode +' '+ score);
+  console.log('User Data Accessed:', name +' '+ mode +' '+ score); // TODO: drop the milliseconds
 
   // -Add relevant content to results form on about.html
   var $targetName = $('#resultName');

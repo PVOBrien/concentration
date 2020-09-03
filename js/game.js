@@ -191,10 +191,8 @@ function checkWinCondition(){
   if (endTime) {
     var numStartTime = startTime.getTime();
     var numEndTime = endTime.getTime();
-    var elapsedTime = numEndTime-numStartTime;
-    var timeInSec = elapsedTime/1000;
-    console.log('Elapsed Time:', timeInSec);
-    userData.finalTimes.push(timeInSec);
+    var elapsedTimeInSec = Math.floor((numEndTime-numStartTime)/1000);
+    userData.finalTimes.push(elapsedTimeInSec);
     // At this point, we have updated all necessary userData information and are ready to re-stringify it and send it back to local storage
     stringyUser = JSON.stringify(userData);
     localStorage.setItem('userData', stringyUser);
