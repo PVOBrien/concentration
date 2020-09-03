@@ -15,11 +15,11 @@ function displayResults(){
   console.log('User Data Accessed:', name +' '+ mode +' '+ score);
 
   // -Add relevant content to results form on about.html
-  var targetName = document.getElementById('resultName');
-  targetName.innerHTML='';
+  var $targetName = document.getElementById('resultName');
+  $targetName.innerHTML='';
   var nameText = document.createElement('p');
-  nameText.textContent= name;
-  targetName.appendChild(nameText);
+  nameText.textContent = name;
+  $targetName.appendChild(nameText);
 
   var targetMode = document.getElementById('resultMode');
   targetMode.innerHTML='';
