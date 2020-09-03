@@ -32,9 +32,9 @@
 
 function assignDifficultyToUser(){
 
-  var difficultyElement = document.getElementsByName('mode');
-  for (var i=0; i<difficultyElement.length; i++) {
-    if(difficultyElement[i].checked){
+  var $difficultyElement = $('mode');
+  for (var i=0; i<$difficultyElement.length; i++) {
+    if($difficultyElement[i].checked){
       //Assign to User Object;
     }
   }
@@ -44,7 +44,7 @@ assignDifficultyToUser();
 // TODO: Difficulty Selector will default to the ‘easiest’ option if no choice is made.
 // -Set default value in Constructor Function
 
-// Difficulty Selection will be saved to local storage. // Included in the gameStart variable/beginningTheGame function.
+// Difficulty Selection will be saved to local storage. // Included in the $gameStart variable/beginningTheGame function.
 // -Will take place with 'Begin the Game' Button actions
 
 // =====================================================================================
@@ -60,9 +60,9 @@ function User(name, difficulty, theme) {
   this.finalTimes = []; // where to collect their times/scores
 }
 
-var gameStart = document.getElementById('nameForm');
-gameStart.addEventListener('submit', beginningTheGame);
-function beginningTheGame(click){
+var $gameStart = $('#nameForm');
+$gameStart.on('submit', beginningTheGame);
+function beginningTheGame(this){
   click.preventDefault();
 
 

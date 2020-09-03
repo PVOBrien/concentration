@@ -1,11 +1,8 @@
 'use strict';
-// ====================================Card 8 - Jen===========================================
-
 
 displayResults();
 
 function displayResults(){
-
 
   // -Destringify User Object from local storage
   var stringyUser = localStorage.getItem('userData');
@@ -18,17 +15,17 @@ function displayResults(){
   console.log('User Data Accessed:', name +' '+ mode +' '+ score);
 
   // -Add relevant content to results form on about.html
-  var targetName = document.getElementById('resultName');
-  targetName.innerHTML='';
+  var $targetName = document.getElementById('resultName');
+  $targetName.innerHTML='';
   var nameText = document.createElement('p');
   nameText.textContent= name;
-  targetName.appendChild(nameText);
+  $targetName.appendChild(nameText);
 
-  var targetMode = document.getElementById('resultMode');
-  targetMode.innerHTML='';
+  var $targetMode = document.getElementById('resultMode');
+  $targetMode.innerHTML='';
   var modeText = document.createElement('p');
   modeText.textContent= mode;
-  targetMode.appendChild(modeText);
+  $targetMode.appendChild(modeText);
 
   var targetTime = document.getElementById('resultScore');
   targetTime.innerHTML='';
@@ -40,13 +37,3 @@ function displayResults(){
 
 // TODO:A ‘Play Again’ Option will display beneath the results that - if clicked - will link back to the landing page.
 // Use same button as in game.js => Anchor Tag to index.html
-
-
-// =====================================================================================
-// ====================================Card 9 - Paul===========================================
-
-// TODO: Results page will include an 'About Me' sidebar that will display images and names of all 3 collaborators
-
-
-// When clicked, each image/name will expand to display text of a personalized ‘About Me’ written by that collaborator.
-//- Only one full ‘About Me’ text can be displayed at a given time - clicking on a different picture will replace the current text with the newly selected text
