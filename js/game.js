@@ -1,11 +1,15 @@
 /* eslint-disable no-unused-vars */
 'use strict';
 
+// === VARIABLES TO HAVE AROUND ===
+
+let number = 1;
+Card.deck = [];
+
 var startTime;
 var endTime;
 
-
-// Jen, this start time tells us when we click.
+// This start time tells us when we click.
 
 var clickCounter = 0;
 var pairCounter = 0;
@@ -43,7 +47,7 @@ $sidebarUsername.text(userName);
 var $sidebarDifficulty = $('#mode');
 $sidebarDifficulty.text(mode);
 
-// -Preferences will be retrieved from parsed User Object - DONE already destringifyed above)
+// -Preferences will be retrieved from destringifyed User Object above)
 
 var allCards = document.querySelectorAll('.memory-card');
 for (var i = 0; i < allCards.length; i++){
@@ -66,7 +70,6 @@ if (mode === 'easy'){
 }
 
 // Theme Selection applied to deck=========================
-
 
 function setThemeRed(){
   for (var i = 0; i<cards.length; i++){
@@ -172,9 +175,6 @@ function resetBoard() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-// =====================================================================================
-// ====================================Card 7 - Jen===========================================
-
 function checkWinCondition(){
 // When all pairs are selected (pairCounter === maxPair, based on mode)
   if (pairCounter === maxPair){
@@ -194,5 +194,23 @@ function checkWinCondition(){
     window.location.href = 'about.html';
   }
 }
-// =====================================================================================
 
+function Card(src) {
+  this.number = number++;
+  this.picture = src;
+  this.theme = userData.theme;
+  // this.alt = alt; TODO: incorpoate into args after it's working.
+  Card.deck.push(this); // all the compiled cards, the "deck", so to speak
+}
+
+
+new Card('img/PVO Goat 1.jpg');
+new Card('img/PVO Goat 2.jpg');
+new Card('img/PVO Goat 3.jpg');
+new Card('img/PVO Goat 4.jpg');
+new Card('img/PVO Goat 5.jpg');
+new Card('img/PVO Goat 6.jpg');
+new Card('img/PVO Goat 7.jpg');
+new Card('img/PVO Goat 8.jpg');
+new Card('img/PVO Goat 9.jpg');
+new Card('img/PVO Goat 10.jpg');
