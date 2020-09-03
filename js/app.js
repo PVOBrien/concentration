@@ -62,7 +62,7 @@ function User(name, difficulty, theme) {
 
 var $gameStart = $('#nameForm');
 $gameStart.on('submit', beginningTheGame);
-function beginningTheGame(this){
+function beginningTheGame(){
   click.preventDefault();
 
 
