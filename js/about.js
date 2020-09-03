@@ -20,19 +20,13 @@ function displayResults(){
   var nameHolder = $("<p></p>").text(name); // creates the <p> tag and then the .text method takes in the name variable as the argument to fill that elements text.
   $targetName.append(nameHolder); // targets the targetName and appends the var nameHolder to it.
 
-  var $targetMode = document.getElementById('resultMode');
-  $targetMode.innerHTML='';
-  var modeText = document.createElement('p');
-  modeText.textContent= mode;
-  $targetMode.appendChild(modeText);
+  var $targetMode = $('#resultMode');
+  $targetMode.empty();
+  var modeHolder = $("<p></p>").text(mode);
+  $targetMode.append(modeHolder);
 
-  var targetTime = document.getElementById('resultScore');
-  targetTime.innerHTML='';
-  var timeText = document.createElement('p');
-  timeText.textContent= score;
-  targetTime.appendChild(timeText);
-
+  var $targetTime = $('#resultScore');
+  $targetTime.empty();
+  var $timeHolder = $("<p></p>").text(score);
+  $targetTime.append($timeHolder);
 }
-
-// TODO:A ‘Play Again’ Option will display beneath the results that - if clicked - will link back to the landing page.
-// Use same button as in game.js => Anchor Tag to index.html

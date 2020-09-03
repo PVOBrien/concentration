@@ -12,7 +12,7 @@ function assignDifficultyToUser(){
   }
 }
 
-assignDifficultyToUser();
+// assignDifficultyToUser();
 
 function User(name, difficulty, theme) {
   this.name = name;
