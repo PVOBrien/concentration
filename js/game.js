@@ -37,19 +37,13 @@ var theme = userData.theme;
 
 // Append name & difficulty & button (Go Home) in a sidebar
 
-var sidebarUsername = document.getElementById('name');
-sidebarUsername.textContent = userName;
+var $sidebarUsername = $('#name');
+$sidebarUsername.text(userName);
 
-var sidebarDifficulty = document.getElementById('mode');
-sidebarDifficulty.textContent = mode;
+var $sidebarDifficulty = $('#mode');
+$sidebarDifficulty.text(mode);
 
 // -Preferences will be retrieved from parsed User Object - DONE already destringifyed above)
-
-// TODO: Render a timer that is set to 0:00 and will start upon first click.
-// - Timer will be located in the sidebar
-
-// =====================================================================================
-// ====================================Card 6 - Rob===========================================
 
 var allCards = document.querySelectorAll('.memory-card');
 for (var i = 0; i < allCards.length; i++){
