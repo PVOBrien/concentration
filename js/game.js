@@ -17,8 +17,6 @@ var pairCounter = 0;
 // This start time tells us when we arrive at the page
 var arrivedTime = new Date();
 
-// ====================================Card 5 - Paul====================================
-
 // Card Constructor must exist (Title, Source - url - front of card , Theme - var - back of card) // Wrapped into other functions
 
 
