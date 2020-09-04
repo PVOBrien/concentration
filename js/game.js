@@ -1,24 +1,21 @@
 /* eslint-disable no-unused-vars */
 'use strict';
 
+// =/= FUNCTION IMPORT =/=
+
+import { knuthShuffle } from './modules/knuth-shuffle.js'; // thanks to https://www.youtube.com/watch?time_continue=225&v=s9kNndJLOjg&feature=emb_logo for the walk-through to get this working.
+
 // === VARIABLES TO HAVE AROUND ===
 
 let number = 1;
 Card.deck = [];
+var gameDeck = [];
 
 var startTime;
 var endTime;
 
-// This start time tells us when we click.
-
 var clickCounter = 0;
 var pairCounter = 0;
-
-// This start time tells us when we arrive at the page
-var arrivedTime = new Date();
-
-// Card Constructor must exist (Title, Source - url - front of card , Theme - var - back of card) // Wrapped into other functions
-
 
 var stringyUser = localStorage.getItem('userData');
 var userData = JSON.parse(stringyUser);
@@ -49,7 +46,7 @@ for (var i = 0; i < $allCards.length; i++){
 }
 
 // Mode Selection applied to deck=======================
-if (mode === 'easy'){
+if (mode === 'easy'){ // TODO: ADD gameDeck here.
   var cards = document.querySelectorAll('.easy');
   var cardsDisplayed = 12;
   var maxPair = 6;
@@ -197,7 +194,6 @@ function Card(src) {
   Card.deck.push(this); // all the compiled cards, the "deck", so to speak
 }
 
-
 new Card('img/PVO Goat 1.jpg');
 new Card('img/PVO Goat 2.jpg');
 new Card('img/PVO Goat 3.jpg');
@@ -208,3 +204,9 @@ new Card('img/PVO Goat 7.jpg');
 new Card('img/PVO Goat 8.jpg');
 new Card('img/PVO Goat 9.jpg');
 new Card('img/PVO Goat 10.jpg');
+
+// function gameShuffle() {
+//   switch (mode) {
+//     case 
+//   }
+// }
