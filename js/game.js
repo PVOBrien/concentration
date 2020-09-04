@@ -45,7 +45,7 @@ for (var i = 0; i < $allCards.length; i++){
 }
 
 // Mode Selection applied to deck=======================
-if (mode === 'easy'){ // TODO: ADD gameDeck here.
+if (mode === 'easy'){ // TODO: ADD gameDeckshuffle()
   var cards = document.querySelectorAll('.easy');
   var cardsDisplayed = 12;
   var maxPair = 6;
@@ -60,6 +60,14 @@ if (mode === 'easy'){ // TODO: ADD gameDeck here.
 }
 
 // Theme Selection applied to deck=========================
+
+function setTheme(theme){
+  if (theme === "blue") {
+    return 'img/blue.jpg';
+  } else {
+    return 'img/red.jpg';
+  }
+}
 
 function setThemeRed(){ // TODO: Won't need once my method is implemented
   for (var i = 0; i<cards.length; i++){
@@ -188,6 +196,7 @@ function checkWinCondition(){
 function Card(src) {
   this.number = number++;
   this.picture = src;
+  this.theme = setTheme(theme);
   // this.theme = userData.theme;
   // this.alt = alt; TODO: incorporate into args after it's working.
   Card.deck.push(this); // all the compiled cards, the "deck", so to speak
