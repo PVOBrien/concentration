@@ -204,23 +204,30 @@ new Card('img/PVO Goat 8.jpg');
 new Card('img/PVO Goat 9.jpg');
 new Card('img/PVO Goat 10.jpg');
 
-function gameShuffle() {
+var gameDeck = [];
+
+function deckCreation(num) {
+  for (let i = 0; i < num; i++) {
+    gameDeck.push(Card.deck[i])
+  }
+  gameDeck = gameDeck.concat(gameDeck);
+  knuthShuffle(gameDeck);
+  return gameDeck;
+}
+
+function gameDeckShuffle() {
   knuthShuffle(Card.deck);
   switch (mode) {
     case 'easy':
       deckCreation(6);
-      return gameDeck
+      return gameDeck;
+    case 'normal':
+      deckCreation(8);
+      return gameDeck;
+    case 'hard':
+      deckCreation(10);
+      return gameDeck;
   }
-    case ''
-}
-
-function deckCreation(num) {
-  let gameDeck = [];
-
-  for (let i = 0; i > num; i++) {
-    gameDeck += gameDeck.push(Card.deck[i])
-  }
-  return gameDeck
 }
 
 function knuthShuffle(array) { // still want to try and "import" this (and the Card constructor, if the "module" type will let me)
