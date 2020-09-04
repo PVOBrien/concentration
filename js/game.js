@@ -17,10 +17,6 @@ var pairCounter = 0;
 // This start time tells us when we arrive at the page
 var arrivedTime = new Date();
 
-
-console.log('This is when we land on the page but not yet started playing: ' + arrivedTime);
-
-
 // ====================================Card 5 - Paul====================================
 
 // Card Constructor must exist (Title, Source - url - front of card , Theme - var - back of card) // Wrapped into other functions
@@ -49,9 +45,9 @@ $sidebarDifficulty.text(mode);
 
 // -Preferences will be retrieved from destringifyed User Object above)
 
-var allCards = document.querySelectorAll('.memory-card');
-for (var i = 0; i < allCards.length; i++){
-  allCards[i].classList.add('never-show');
+var $allCards = $('.memory-card');
+for (var i = 0; i < $allCards.length; i++){
+  $allCards[i].classList.add('never-show');
 }
 
 // Mode Selection applied to deck=======================
@@ -71,13 +67,13 @@ if (mode === 'easy'){
 
 // Theme Selection applied to deck=========================
 
-function setThemeRed(){
+function setThemeRed(){ // TODO: Won't need once my method is implemented
   for (var i = 0; i<cards.length; i++){
     cards[i].lastElementChild.src = 'img/red.jpg';
   }
 }
 
-function setThemeBlue(){
+function setThemeBlue(){ // TODO: Won't need once my method is implemented
   for (var i = 0; i<cards.length; i++){
     cards[i].lastElementChild.src = 'img/blue.jpg';
   }
