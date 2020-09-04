@@ -9,7 +9,6 @@
 
 let number = 1;
 Card.deck = [];
-var gameDeck = [];
 
 var startTime;
 var endTime;
@@ -205,13 +204,26 @@ new Card('img/PVO Goat 8.jpg');
 new Card('img/PVO Goat 9.jpg');
 new Card('img/PVO Goat 10.jpg');
 
-// function gameShuffle() {
-//   switch (mode) {
-//     case 
-//   }
-// }
+function gameShuffle() {
+  knuthShuffle(Card.deck);
+  switch (mode) {
+    case 'easy':
+      deckCreation(6);
+      return gameDeck
+  }
+    case ''
+}
 
-function knuthShuffle(array) {
+function deckCreation(num) {
+  let gameDeck = [];
+
+  for (let i = 0; i > num; i++) {
+    gameDeck += gameDeck.push(Card.deck[i])
+  }
+  return gameDeck
+}
+
+function knuthShuffle(array) { // still want to try and "import" this (and the Card constructor, if the "module" type will let me)
   var currentIndex = array.length
     , temporaryValue
     , randomIndex
