@@ -3,7 +3,7 @@
 
 // =/= FUNCTION IMPORT =/=
 
-import { knuthShuffle } from './modules/knuth-shuffle.js'; // thanks to https://www.youtube.com/watch?time_continue=225&v=s9kNndJLOjg&feature=emb_logo for the walk-through to get this working.
+// import { knuthShuffle } from './modules/knuth-shuffle.js'; // thanks to https://www.youtube.com/watch?time_continue=225&v=s9kNndJLOjg&feature=emb_logo for the walk-through to get this working.
 
 // === VARIABLES TO HAVE AROUND ===
 
@@ -189,8 +189,8 @@ function checkWinCondition(){
 function Card(src) {
   this.number = number++;
   this.picture = src;
-  this.theme = userData.theme;
-  // this.alt = alt; TODO: incorpoate into args after it's working.
+  // this.theme = userData.theme;
+  // this.alt = alt; TODO: incorporate into args after it's working.
   Card.deck.push(this); // all the compiled cards, the "deck", so to speak
 }
 
@@ -210,3 +210,24 @@ new Card('img/PVO Goat 10.jpg');
 //     case 
 //   }
 // }
+
+function knuthShuffle(array) {
+  var currentIndex = array.length
+    , temporaryValue
+    , randomIndex
+    ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
