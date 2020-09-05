@@ -197,23 +197,14 @@ h4 {
 
 #instructions{
   background-color: honeydew;
-
   margin: auto;
-
   position: absolute;
-
   top: 0; left: 0%; bottom: 0; right: 0;
-
   width: 600px; /* Need a specific value to work */
-
   height: 350px;
-
   width: 40%;
-
   text-align: center;
-
   padding: 40px;
-
   border-radius: 10%;
 }
 
@@ -305,7 +296,7 @@ border-radius: 9%;
   margin-top: 35px;
 }
 
-.memory-card {
+.onboard {
   border: none;
   width: calc(20% - 10px);
   height: calc(25.333% - 10px);
@@ -319,13 +310,13 @@ border-radius: 9%;
 }
 
 
-.memory-card:active {
+.onboard:active {
   transform: scale(0.97);
   transition: transform .2s;
   border: none;
 }
 
-.memory-card.flip {
+.onboard.flip {
   border: none;
   transform: rotateY(180deg);
 }

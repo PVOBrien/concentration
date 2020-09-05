@@ -34,20 +34,22 @@ $sidebarDifficulty.text(mode);
 
 // -Preferences will be retrieved from destringifyed User Object above)
 
+theme === 'red' ?  setThemeRed() : setThemeBlue();
+
 // Mode Selection applied to deck=======================
 if (mode === 'easy'){ // TODO: ADD gameDeckshuffle()
   var cards = document.querySelectorAll('.easy');
-  $('.easy').removeClass('never-show');
+  $('.easy').removeClass('never-show').addClass('onboard');
   var cardsDisplayed = 12;
   var maxPair = 6;
 } else if (mode === 'normal'){
   cards = document.querySelectorAll('.normal');
-  $('.normal').removeClass('never-show');
+  $('.normal').removeClass('never-show').addClass('onboard');
   cardsDisplayed = 16;
   maxPair = 8;
 } else if (mode === 'hard'){
   cards = document.querySelectorAll('.hard');
-  $('.hard').removeClass('never-show');
+  $('.hard').removeClass('never-show').addClass('onboard');
   cardsDisplayed = 20;
   maxPair = 10;
 }
@@ -63,18 +65,16 @@ function setCardTheme(theme){
 }
 
 function setThemeRed() { // TODO: Won't need once my method is implemented
-  $('.memory-card').each(function(i, el) {
+  $('.never-show').each(function(i, el) {
     $(this).children('.back-face').attr('src', 'img/red.jpg') // https://www.tutorialspoint.com/jquery/traversal-children.htm to target child of $(this)
   }); // https://stackoverflow.com/questions/54203234/does-not-have-class-selector-in-jquery-select-an-element-by-particular-class#:~:text=You%20are%20not%20capturing%20the%20this%20reference%20correctly%2C,have%20its%20own%20this%2C%20arguments%2C%20super%2C%20or%20new.target. breaks down why arrow notation doesn't work here - arrow notation doesn't support the implicit "this".  
 }
 
 function setThemeBlue() { // TODO: Won't need once my method is implemented
-  $('.memory-card').each(function(i, el) {
+  $('.never-show').each(function(i, el) {
     $(this).children('.back-face').attr('src', 'img/blue.jpg')
   });
 }
-
-theme === 'red' ?  setThemeRed() : setThemeBlue();
 
 // Card Flip Function========================================
 
@@ -96,7 +96,7 @@ function flipCard() {
   if (!hasFlippedCard) {
     hasFlippedCard = true;
     firstCard = this;
-    console.log(firstCard.querySelector('.front-face').getAttribute('src'));
+    console.log(this.querySelector('.front-face').getAttribute('src'));
     return;
   }
 
@@ -138,7 +138,6 @@ function unflipCards() {
     resetBoard();
   }, 1500);
 }
-
 
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
@@ -245,7 +244,7 @@ function cardPlacer(){
   var $board = $('.concentration');
   for (let i = 0; i < gameDeck.length; i++) {
     let cardFrontPic = $('<img>').attr('src', gameDeck[i].picture).addClass('new-cards'); //
-    var $cardFrontDiv = $('<div></div>').addClass('new-cards-holder').append(cardFrontPic); // .addClass('memory-card')
+    var $cardFrontDiv = $('<div></div>').addClass('new-cards-holder').append(cardFrontPic); //
 
     $board.append($cardFrontDiv);
   }
