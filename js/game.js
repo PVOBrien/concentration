@@ -9,7 +9,7 @@
 
 let number = 1;
 Card.deck = [];
-
+let gameDeck = [];
 var startTime;
 var endTime;
 
@@ -28,8 +28,6 @@ var theme = userData.theme;
 
 // -Fill Array B with an exact copy of Array A cards: went different direction for logic, no long needed.
 // -Pull from Array A & B to fill game grid // went different direction for logic, no long needed.
-
-// Append name & difficulty & button (Go Home) in a sidebar
 
 var $sidebarUsername = $('#name');
 $sidebarUsername.text(userName);
@@ -61,7 +59,7 @@ if (mode === 'easy'){ // TODO: ADD gameDeckshuffle()
 
 // Theme Selection applied to deck=========================
 
-function setTheme(theme){
+function setCardTheme(theme){
   if (theme === "blue") {
     return 'img/blue.jpg';
   } else {
@@ -138,7 +136,6 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   firstCard.classList.add('hide-it');
 
-
   secondCard.removeEventListener('click', flipCard);
   secondCard.classList.add('hide-it');
 
@@ -196,7 +193,7 @@ function checkWinCondition(){
 function Card(src) {
   this.number = number++;
   this.picture = src;
-  this.theme = setTheme(theme);
+  this.theme = setCardTheme(theme);
   // this.theme = userData.theme;
   // this.alt = alt; TODO: incorporate into args after it's working.
   Card.deck.push(this); // all the compiled cards, the "deck", so to speak
@@ -213,7 +210,7 @@ new Card('img/PVO Goat 8.jpg');
 new Card('img/PVO Goat 9.jpg');
 new Card('img/PVO Goat 10.jpg');
 
-var gameDeck = [];
+gameDeckShuffle();
 
 function deckCreation(num) {
   for (let i = 0; i < num; i++) {
@@ -259,3 +256,15 @@ function knuthShuffle(array) { // still want to try and "import" this (and the C
   }
   return array;
 }
+
+function cardPlacer(){
+  var $board = $('.concentration');
+  for (let i = 0; i < gameDeck.length; i++) {
+    let cardFrontPic = $('<img>').attr('src', gameDeck[i].picture).addClass('front-face');
+    var $cardFrontDiv = $('<div></div>').append(cardFrontPic); //.append($('<img>'))
+
+    $board.append($cardFrontDiv);
+  }
+}
+
+// cardPlacer();

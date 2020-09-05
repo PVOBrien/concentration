@@ -22,8 +22,8 @@ function displayResults(){
 
   var $targetMode = $('#resultMode');
   $targetMode.empty();
-  var modeHolder = $("<p></p>").text(mode);
-  $targetMode.append(modeHolder);
+  var $modeHolder = $("<p></p>").text(mode);
+  $targetMode.append($modeHolder);
 
   var $targetTime = $('#resultScore');
   $targetTime.empty();
