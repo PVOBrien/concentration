@@ -26,9 +26,6 @@ var theme = userData.theme;
 // -Fill game board with Style and Difficulty settings from User Object: Wrapped into other functions
 // -Based on Difficulty, fill Array A with Difficulty # of Cards from Card Constructor: went different direction for logic, no long needed.
 
-// -Fill Array B with an exact copy of Array A cards: went different direction for logic, no long needed.
-// -Pull from Array A & B to fill game grid // went different direction for logic, no long needed.
-
 var $sidebarUsername = $('#name');
 $sidebarUsername.text(userName);
 
@@ -36,12 +33,6 @@ var $sidebarDifficulty = $('#mode');
 $sidebarDifficulty.text(mode);
 
 // -Preferences will be retrieved from destringifyed User Object above)
-
-var $allCards = $('.memory-card');
-
-// for (var i = 0; i < $allCards.length; i++){
-//   $allCards[i].classList.add('never-show');
-// }
 
 // Mode Selection applied to deck=======================
 if (mode === 'easy'){ // TODO: ADD gameDeckshuffle()
@@ -72,13 +63,13 @@ function setCardTheme(theme){
 }
 
 function setThemeRed() { // TODO: Won't need once my method is implemented
-  $allCards.each(function(i, el) {
+  $('.memory-card').each(function(i, el) {
     $(this).children('.back-face').attr('src', 'img/red.jpg') // https://www.tutorialspoint.com/jquery/traversal-children.htm to target child of $(this)
   }); // https://stackoverflow.com/questions/54203234/does-not-have-class-selector-in-jquery-select-an-element-by-particular-class#:~:text=You%20are%20not%20capturing%20the%20this%20reference%20correctly%2C,have%20its%20own%20this%2C%20arguments%2C%20super%2C%20or%20new.target. breaks down why arrow notation doesn't work here - arrow notation doesn't support the implicit "this".  
 }
 
 function setThemeBlue() { // TODO: Won't need once my method is implemented
-  $allCards.each(function(i, el) {
+  $('.memory-card').each(function(i, el) {
     $(this).children('.back-face').attr('src', 'img/blue.jpg')
   });
 }
@@ -105,7 +96,7 @@ function flipCard() {
   if (!hasFlippedCard) {
     hasFlippedCard = true;
     firstCard = this;
-
+    console.log(firstCard.querySelector('.front-face').getAttribute('src'));
     return;
   }
 
@@ -115,14 +106,13 @@ function flipCard() {
 }
 
 function checkForMatch() {
-  let isMatch = firstCard.dataset.nature === secondCard.dataset.nature;
+  let isMatch = firstCard.querySelector('.front-face').getAttribute('src') === secondCard.querySelector('.front-face').getAttribute('src');
 
   isMatch ? disableCards() : unflipCards();
 }
 
 function disableCards() {
-  pairCounter++;
-  // pairCounter will count increase with each successful match until it reaches maxPair for the chosen mode
+  pairCounter++; // pairCounter will count increase with each successful match until it reaches maxPair for the chosen mode
 
   console.log('Game time at this match is: ' + startTime);
 
