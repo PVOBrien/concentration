@@ -202,7 +202,7 @@ function Card(src) {
 new Card('img/PVO Goat 1.jpg');
 new Card('img/PVO Goat 2.jpg');
 new Card('img/PVO Goat 3.jpg');
-new Card('img/PVO Goat 4.jpg');
+new Card('img/PVO Goat 4.png');
 new Card('img/PVO Goat 5.png');
 new Card('img/PVO Goat 6.jpg');
 new Card('img/PVO Goat 7.png');
