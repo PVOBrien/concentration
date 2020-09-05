@@ -38,21 +38,25 @@ $sidebarDifficulty.text(mode);
 // -Preferences will be retrieved from destringifyed User Object above)
 
 var $allCards = $('.memory-card');
-for (var i = 0; i < $allCards.length; i++){
-  $allCards[i].classList.add('never-show');
-}
+
+// for (var i = 0; i < $allCards.length; i++){
+//   $allCards[i].classList.add('never-show');
+// }
 
 // Mode Selection applied to deck=======================
 if (mode === 'easy'){ // TODO: ADD gameDeckshuffle()
   var cards = document.querySelectorAll('.easy');
+  $('.easy').removeClass('never-show');
   var cardsDisplayed = 12;
   var maxPair = 6;
 } else if (mode === 'normal'){
   cards = document.querySelectorAll('.normal');
+  $('.normal').removeClass('never-show');
   cardsDisplayed = 16;
   maxPair = 8;
 } else if (mode === 'hard'){
   cards = document.querySelectorAll('.hard');
+  $('.hard').removeClass('never-show');
   cardsDisplayed = 20;
   maxPair = 10;
 }
@@ -67,34 +71,19 @@ function setCardTheme(theme){
   }
 }
 
-function setThemeRed(){ // TODO: Won't need once my method is implemented
+function setThemeRed() { // TODO: Won't need once my method is implemented
   $allCards.each(function(i, el) {
-    $(this).children('.back-face').attr('src', 'img/red.jpg')
-  })
+    $(this).children('.back-face').attr('src', 'img/red.jpg') // https://www.tutorialspoint.com/jquery/traversal-children.htm to target child of $(this)
+  }); // https://stackoverflow.com/questions/54203234/does-not-have-class-selector-in-jquery-select-an-element-by-particular-class#:~:text=You%20are%20not%20capturing%20the%20this%20reference%20correctly%2C,have%20its%20own%20this%2C%20arguments%2C%20super%2C%20or%20new.target. breaks down why arrow notation doesn't work here - arrow notation doesn't support the implicit "this".  
+}
 
-  $allCards.each(function(i, el) { // proof of concept. https://stackoverflow.com/questions/54203234/does-not-have-class-selector-in-jquery-select-an-element-by-particular-class#:~:text=You%20are%20not%20capturing%20the%20this%20reference%20correctly%2C,have%20its%20own%20this%2C%20arguments%2C%20super%2C%20or%20new.target. breaks down why arrow notation doesn't work here - arrow notation doesn't support the implicit "this".
-    $(this).children(".back-face").addClass('fulltest')
+function setThemeBlue() { // TODO: Won't need once my method is implemented
+  $allCards.each(function(i, el) {
+    $(this).children('.back-face').attr('src', 'img/blue.jpg')
   });
 }
 
-
-function setThemeBlue(){ // TODO: Won't need once my method is implemented
-  for (var i = 0; i<cards.length; i++){
-    cards[i].lastElementChild.src = 'img/blue.jpg';
-  }
-}
-
-if (theme === 'red'){
-  setThemeRed();
-} else if (theme === 'blue'){
-  setThemeBlue();
-}
-
-// Display Active Cards=====================================
-
-for (i = 0; i < cards.length; i++){
-  cards[i].classList.remove('never-show');
-}
+theme === 'red' ?  setThemeRed() : setThemeBlue();
 
 // Card Flip Function========================================
 
