@@ -1,7 +1,7 @@
 /*jshint -W054 */
 // http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 
-export function knuthShuffle(array) {
+function knuthShuffle(array) {
   var currentIndex = array.length
     , temporaryValue
     , randomIndex
