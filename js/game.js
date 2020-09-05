@@ -203,9 +203,9 @@ new Card('img/PVO Goat 1.jpg');
 new Card('img/PVO Goat 2.jpg');
 new Card('img/PVO Goat 3.jpg');
 new Card('img/PVO Goat 4.jpg');
-new Card('img/PVO Goat 5.jpg');
+new Card('img/PVO Goat 5.png');
 new Card('img/PVO Goat 6.jpg');
-new Card('img/PVO Goat 7.jpg');
+new Card('img/PVO Goat 7.png');
 new Card('img/PVO Goat 8.jpg');
 new Card('img/PVO Goat 9.jpg');
 new Card('img/PVO Goat 10.jpg');
@@ -260,11 +260,11 @@ function knuthShuffle(array) { // still want to try and "import" this (and the C
 function cardPlacer(){
   var $board = $('.concentration');
   for (let i = 0; i < gameDeck.length; i++) {
-    let cardFrontPic = $('<img>').attr('src', gameDeck[i].picture).addClass('front-face');
-    var $cardFrontDiv = $('<div></div>').append(cardFrontPic); //.append($('<img>'))
+    let cardFrontPic = $('<img>').attr('src', gameDeck[i].picture).addClass('new-cards'); //
+    var $cardFrontDiv = $('<div></div>').addClass('new-cards-holder').append(cardFrontPic); // .addClass('memory-card')
 
     $board.append($cardFrontDiv);
   }
 }
 
-// cardPlacer();
+cardPlacer();
