@@ -34,7 +34,7 @@ $sidebarDifficulty.text(mode);
 
 // -Preferences will be retrieved from destringifyed User Object above)
 
-theme === 'red' ?  setThemeRed() : setThemeBlue();
+// theme === 'red' ?  setThemeRed() : setThemeBlue();
 
 // Mode Selection applied to deck=======================
 if (mode === 'easy'){ // TODO: ADD gameDeckshuffle()
@@ -64,17 +64,17 @@ function setCardTheme(theme){
   }
 }
 
-function setThemeRed() { // TODO: Won't need once my method is implemented
-  $('.never-show').each(function(i, el) {
-    $(this).children('.back-face').attr('src', 'img/red.jpg') // https://www.tutorialspoint.com/jquery/traversal-children.htm to target child of $(this)
-  }); // https://stackoverflow.com/questions/54203234/does-not-have-class-selector-in-jquery-select-an-element-by-particular-class#:~:text=You%20are%20not%20capturing%20the%20this%20reference%20correctly%2C,have%20its%20own%20this%2C%20arguments%2C%20super%2C%20or%20new.target. breaks down why arrow notation doesn't work here - arrow notation doesn't support the implicit "this".  
-}
+// function setThemeRed() { // TODO: Won't need once my method is implemented
+//   $('.never-show').each(function(i, el) {
+//     $(this).children('.back-face').attr('src', 'img/red.jpg') // https://www.tutorialspoint.com/jquery/traversal-children.htm to target child of $(this)
+//   }); // https://stackoverflow.com/questions/54203234/does-not-have-class-selector-in-jquery-select-an-element-by-particular-class#:~:text=You%20are%20not%20capturing%20the%20this%20reference%20correctly%2C,have%20its%20own%20this%2C%20arguments%2C%20super%2C%20or%20new.target. breaks down why arrow notation doesn't work here - arrow notation doesn't support the implicit "this".  
+// }
 
-function setThemeBlue() { // TODO: Won't need once my method is implemented
-  $('.never-show').each(function(i, el) {
-    $(this).children('.back-face').attr('src', 'img/blue.jpg')
-  });
-}
+// function setThemeBlue() { // TODO: Won't need once my method is implemented
+//   $('.never-show').each(function(i, el) {
+//     $(this).children('.back-face').attr('src', 'img/blue.jpg')
+//   });
+// }
 
 // Card Flip Function========================================
 
@@ -152,6 +152,7 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
 
 function checkWinCondition(){
 // When all pairs are selected (pairCounter === maxPair, based on mode)
@@ -241,13 +242,16 @@ function knuthShuffle(array) { // still want to try and "import" this (and the C
 }
 
 function cardPlacer(){
-  var $board = $('.concentration');
+  var $board = $('.memory-game');
   for (let i = 0; i < gameDeck.length; i++) {
-    let cardFrontPic = $('<img>').attr('src', gameDeck[i].picture).addClass('new-cards'); //
-    var $cardFrontDiv = $('<div></div>').addClass('new-cards-holder').append(cardFrontPic); //
+    let cardFrontPic = $('<img>').attr('src', gameDeck[i].picture).addClass('new-cards').addClass('front-face'); //
+    let cardBack = $('<img>').attr('src', gameDeck[i].theme).addClass('back-face');
+    var $cardFrontDiv = $('<div></div>').addClass('onboard').append(cardFrontPic).append(cardBack); //
 
     $board.append($cardFrontDiv);
   }
 }
 
 cardPlacer();
+
+$('.onboard').on('click', flipCard)
