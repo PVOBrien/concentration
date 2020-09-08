@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
-
 'use strict';
 
-function assignDifficultyToUser(){
+function assignDifficultyToUser(){ // assignDifficultyToUser();
 
   var $difficultyElement = $('mode');
   for (var i=0; i<$difficultyElement.length; i++) {
@@ -11,8 +10,6 @@ function assignDifficultyToUser(){
     }
   }
 }
-
-// assignDifficultyToUser();
 
 function User(name, difficulty, theme) {
   this.name = name;

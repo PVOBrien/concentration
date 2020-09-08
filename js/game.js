@@ -34,19 +34,14 @@ $sidebarDifficulty.text(mode);
 
 // -Preferences will be retrieved from destringifyed User Object above)
 
-// theme === 'red' ?  setThemeRed() : setThemeBlue();
-
 // Mode Selection applied to deck=======================
 if (mode === 'easy'){ // TODO: ADD gameDeckshuffle()
-  $('.easy').removeClass('never-show').addClass('onboard');
   var cardsDisplayed = 12;
   var maxPair = 6;
 } else if (mode === 'normal'){
-  $('.normal').removeClass('never-show').addClass('onboard');
   cardsDisplayed = 16;
   maxPair = 8;
 } else if (mode === 'hard'){
-  $('.hard').removeClass('never-show').addClass('onboard');
   cardsDisplayed = 20;
   maxPair = 10;
 }
@@ -101,7 +96,6 @@ function disableCards() {
 
   console.log('Game time at this match is: ' + startTime);
 
-
   firstCard.removeEventListener('click', flipCard);
   firstCard.classList.add('hide-it');
 
@@ -112,8 +106,6 @@ function disableCards() {
 }
 
 function unflipCards() {
-
-  console.log('Game time at this not-match is: ' + startTime);
 
   lockBoard = true;
 
@@ -135,8 +127,7 @@ function checkWinCondition(){
     endTime = new Date();
     console.log('End Time:', endTime);
   }
-  // Once the end time is captured, a 'score' is deduced by extracting and comparing time codes and converting from milliseconds to seconds.  That value in seconds is added to the userData object
-  if (endTime) {
+  if (endTime) { // Once the end time is captured, a 'score' is deduced by extracting and comparing time codes and converting from milliseconds to seconds.  That value in seconds is added to the userData object
     var numStartTime = startTime.getTime();
     var numEndTime = endTime.getTime();
     var elapsedTimeInSec = Math.floor((numEndTime-numStartTime)/1000);
@@ -153,7 +144,6 @@ function Card(src) {
   this.number = number++;
   this.picture = src;
   this.theme = setCardTheme(theme);
-  // this.theme = userData.theme;
   // this.alt = alt; TODO: incorporate into args after it's working.
   Card.deck.push(this); // all the compiled cards, the "deck", so to speak
 }
@@ -201,13 +191,10 @@ function knuthShuffle(array) { // still want to try and "import" this (and the C
     , randomIndex
     ;
 
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
+  while (0 !== currentIndex) { // While there remain elements to shuffle...
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
-
     // And swap it with the current element.
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
@@ -219,9 +206,9 @@ function knuthShuffle(array) { // still want to try and "import" this (and the C
 function cardPlacer(){
   var $board = $('.memory-game');
   for (let i = 0; i < gameDeck.length; i++) {
-    let cardFrontPic = $('<img>').attr('src', gameDeck[i].picture).addClass('new-cards').addClass('front-face'); //
+    let cardFrontPic = $('<img>').attr('src', gameDeck[i].picture).addClass('new-cards').addClass('front-face');
     let cardBack = $('<img>').attr('src', gameDeck[i].theme).addClass('back-face');
-    var $cardFrontDiv = $('<div></div>').addClass('onboard').append(cardFrontPic).append(cardBack); //
+    var $cardFrontDiv = $('<div></div>').addClass('onboard').append(cardFrontPic).append(cardBack);
 
     $board.append($cardFrontDiv);
   }
