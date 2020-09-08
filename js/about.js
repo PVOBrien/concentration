@@ -12,25 +12,21 @@ function displayResults(){
   var name = userData.name;
   var mode = userData.difficulty;
   var score = userData.finalTimes[0] + ' seconds';
-  console.log('User Data Accessed:', name +' '+ mode +' '+ score);
+  console.log('User Data Accessed:', name +' '+ mode +' '+ score); // TODO: drop the milliseconds
 
   // -Add relevant content to results form on about.html
-  var $targetName = document.getElementById('resultName');
-  $targetName.innerHTML='';
-  var nameText = document.createElement('p');
-  nameText.textContent = name;
-  $targetName.appendChild(nameText);
+  var $targetName = $('#resultName');
+  $targetName.empty(); // https://api.jquery.com/empty/ for this command to empty everything within it.
+  var nameHolder = $("<p></p>").text(name); // creates the <p> tag and then the .text method takes in the name variable as the argument to fill that elements text.
+  $targetName.append(nameHolder); // targets the targetName and appends the var nameHolder to it.
 
-  var targetMode = document.getElementById('resultMode');
-  targetMode.innerHTML='';
-  var modeText = document.createElement('p');
-  modeText.textContent= mode;
-  targetMode.appendChild(modeText);
+  var $targetMode = $('#resultMode');
+  $targetMode.empty();
+  var $modeHolder = $("<p></p>").text(mode);
+  $targetMode.append($modeHolder);
 
-  var targetTime = document.getElementById('resultScore');
-  targetTime.innerHTML='';
-  var timeText = document.createElement('p');
-  timeText.textContent= score;
-  targetTime.appendChild(timeText);
-
+  var $targetTime = $('#resultScore');
+  $targetTime.empty();
+  var $timeHolder = $("<p></p>").text(score);
+  $targetTime.append($timeHolder);
 }
