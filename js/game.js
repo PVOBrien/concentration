@@ -38,17 +38,14 @@ $sidebarDifficulty.text(mode);
 
 // Mode Selection applied to deck=======================
 if (mode === 'easy'){ // TODO: ADD gameDeckshuffle()
-  var cards = document.querySelectorAll('.easy');
   $('.easy').removeClass('never-show').addClass('onboard');
   var cardsDisplayed = 12;
   var maxPair = 6;
 } else if (mode === 'normal'){
-  cards = document.querySelectorAll('.normal');
   $('.normal').removeClass('never-show').addClass('onboard');
   cardsDisplayed = 16;
   maxPair = 8;
 } else if (mode === 'hard'){
-  cards = document.querySelectorAll('.hard');
   $('.hard').removeClass('never-show').addClass('onboard');
   cardsDisplayed = 20;
   maxPair = 10;
@@ -63,18 +60,6 @@ function setCardTheme(theme){
     return 'img/red.jpg';
   }
 }
-
-// function setThemeRed() { // TODO: Won't need once my method is implemented
-//   $('.never-show').each(function(i, el) {
-//     $(this).children('.back-face').attr('src', 'img/red.jpg') // https://www.tutorialspoint.com/jquery/traversal-children.htm to target child of $(this)
-//   }); // https://stackoverflow.com/questions/54203234/does-not-have-class-selector-in-jquery-select-an-element-by-particular-class#:~:text=You%20are%20not%20capturing%20the%20this%20reference%20correctly%2C,have%20its%20own%20this%2C%20arguments%2C%20super%2C%20or%20new.target. breaks down why arrow notation doesn't work here - arrow notation doesn't support the implicit "this".  
-// }
-
-// function setThemeBlue() { // TODO: Won't need once my method is implemented
-//   $('.never-show').each(function(i, el) {
-//     $(this).children('.back-face').attr('src', 'img/blue.jpg')
-//   });
-// }
 
 // Card Flip Function========================================
 
@@ -143,16 +128,6 @@ function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
 }
-
-(function shuffle() {
-  cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * cardsDisplayed);
-    card.style.order = randomPos;
-  });
-})();
-
-cards.forEach(card => card.addEventListener('click', flipCard));
-
 
 function checkWinCondition(){
 // When all pairs are selected (pairCounter === maxPair, based on mode)
