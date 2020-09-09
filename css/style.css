@@ -32,6 +32,7 @@ p {
 
 input{
   font-family: 'Lobster Two', cursive;
+  height: 20px;
 }
 
 h1{
@@ -53,16 +54,16 @@ border-radius: 5%;
 background-color: transparent;
 }
 
-#wrapperDiv2 {
+/* #wrapperDiv2 {
 margin: 1%;
 height: 87vh;
 width: 96%;
 background: transparent;
 border: solid white 8px;
 border-radius: 5%;
-}
+} */
 
-#wrapperDiv3{
+/* #wrapperDiv3{
   margin: 1%;
   height: 87vh;
   width: 96%;
@@ -71,7 +72,7 @@ border-radius: 5%;
   border-radius: 5%;
   border-bottom: none;
   border-top: none;
-  }
+  } */
 
 .concentration {
   width: 82%;
@@ -96,7 +97,7 @@ border-radius: 5%;
 #picLeft {
     background-color: #d3efdf;
 background-image: url("data:image/svg+xml,%3Csvg width='16' height='20' viewBox='0 0 16 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23eb9589' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M8 0v20L0 10M16 0v10L8 0M16 10v10H8'/%3E%3C/g%3E%3C/svg%3E");
-  }
+}
 
 .button {
   background-color: rgb(61, 199, 142, 0.6);
@@ -134,28 +135,26 @@ h4 {
 
 #nameForm {
   text-align: left;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .spaceholder {
-  float: right;
-}
-
-.spaceholder2 {
-  float: left;
+  flex-basis: 100%;
+  padding-top: 5px;
+  text-align: center;
 }
 
 #subButton {
-  position: absolute;
-  left: -270px;
   right: 0;
   bottom: 0;
-  top: 3;
   margin-left: auto;
   margin-right: auto;
   width: 400px;
   height: 55px;
-  margin-top: 55px;
+  margin-top: 20px;
 }
 
 /* Page 1 variables */
