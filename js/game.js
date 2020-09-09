@@ -35,25 +35,21 @@ $sidebarDifficulty.text(mode);
 // -Preferences will be retrieved from destringifyed User Object above)
 
 // Mode Selection applied to deck=======================
-if (mode === 'easy'){ // TODO: ADD gameDeckshuffle()
-  var cardsDisplayed = 12;
+if (mode === 'easy'){
+  // var cardsDisplayed = 12;
   var maxPair = 6;
 } else if (mode === 'normal'){
-  cardsDisplayed = 16;
+  // cardsDisplayed = 16;
   maxPair = 8;
 } else if (mode === 'hard'){
-  cardsDisplayed = 20;
+  // cardsDisplayed = 20;
   maxPair = 10;
 }
 
 // Theme Selection applied to deck=========================
 
-function setCardTheme(theme){
-  if (theme === "blue") {
-    return 'img/blue.jpg';
-  } else {
-    return 'img/red.jpg';
-  }
+function setCardTheme(theme) {
+  return (theme === "blue" ? 'img/blue.jpg' : 'img/red.jpg');
 }
 
 // Card Flip Function========================================

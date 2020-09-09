@@ -184,6 +184,7 @@ h4 {
 #instructionline {
   margin-bottom: 10px;
 }
+
 /* Page 2 variables */
  
 #gameBoard{
@@ -201,8 +202,8 @@ h4 {
   position: absolute;
   font-size: smaller;
   margin-top: 100px;
-margin-left: -21px;
-border-radius: 9%;
+  margin-left: -21px;
+  border-radius: 9%;
 }
 
 #infoDiv{
@@ -245,11 +246,10 @@ border-radius: 9%;
   position: relative;
   transform: scale(1);
   transform-style: preserve-3d;
-  transition: transform .5s;
+  transition: transform .5s; /* controls speed of all "transforms" */
 }
 
-
-.onboard:active {
+.onboard:active { /* the "click" response */
   transform: scale(0.97);
   transition: transform .2s;
   border: none;
@@ -278,6 +278,8 @@ border-radius: 9%;
 .front-face {
   transform: rotateY(180deg);
   border: none;
+  height: 100%;
+  object-fit: cover; /* not the most elegant solution, but works */
 }
 
 .hide-it{
