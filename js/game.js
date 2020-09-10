@@ -35,14 +35,12 @@ $sidebarDifficulty.text(mode);
 // -Preferences will be retrieved from destringifyed User Object above)
 
 // Mode Selection applied to deck=======================
+
 if (mode === 'easy'){
-  // var cardsDisplayed = 12;
   var maxPair = 6;
 } else if (mode === 'normal'){
-  // cardsDisplayed = 16;
   maxPair = 8;
 } else if (mode === 'hard'){
-  // cardsDisplayed = 20;
   maxPair = 10;
 }
 
