@@ -142,16 +142,16 @@ function Card(src) {
   Card.deck.push(this); // all the compiled cards, the "deck", so to speak
 }
 
-new Card('img/PVO Goat 1.jpg');
-new Card('img/PVO Goat 2.jpg');
-new Card('img/PVO Goat 3.jpg');
-new Card('img/PVO Goat 4.png');
-new Card('img/PVO Goat 5.png');
-new Card('img/PVO Goat 6.jpg');
-new Card('img/PVO Goat 7.png');
-new Card('img/PVO Goat 8.jpg');
-new Card('img/PVO Goat 9.jpg');
-new Card('img/PVO Goat 10.jpg');
+new Card('img/PVO Goat 1.jpg'); // create the card objects...
+new Card('img/PVO Goat 2.jpg'); // ++
+new Card('img/PVO Goat 3.jpg'); // ++
+new Card('img/PVO Goat 4.png'); // ++
+new Card('img/PVO Goat 5.png'); // ++
+new Card('img/PVO Goat 6.jpg'); // ++
+new Card('img/PVO Goat 7.png'); // ++
+new Card('img/PVO Goat 8.jpg'); // ++
+new Card('img/PVO Goat 9.jpg'); // ++
+new Card('img/PVO Goat 10.jpg');// ++
 
 gameDeckShuffle();
 
